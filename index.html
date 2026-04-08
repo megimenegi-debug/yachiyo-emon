@@ -1,0 +1,332 @@
+<style>
+
+/* ===== カラー ===== */
+:root {
+  --green:#0b3d2e;
+  --gold:#c8a96a;
+}
+
+/* ===== RESET ===== */
+html,body{
+  margin:0;
+  padding:0;
+  font-family:"Hiragino Mincho ProN", serif;
+  background:var(--green);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+*{box-sizing:border-box;}
+
+/* ===== フェード ===== */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== FV ===== */
+.fv{
+  position:relative;
+  height:100vh;
+  background:url("FV画像.jpg") center/cover no-repeat;
+}
+.fv::after{
+  background:rgba(11,61,46,0.45);
+}
+
+.fv-logo{
+  position:absolute;
+  top:50px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:3;
+}
+.fv-logo img{
+  width:100px;
+}
+
+.fv-inner{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.fv h1{
+  font-size:22px;
+  letter-spacing:0.25em;
+  line-height:1.6;
+  color:#fff;
+  text-shadow:0 4px 20px rgba(0,0,0,0.6);
+}
+
+.fv p{
+  margin-top:16px;
+  color:var(--gold);
+  font-size:12px;
+  text-shadow:0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* ===== SECTION ===== */
+.section{
+  padding:100px 20px;
+  text-align:center;
+}
+
+.inner{
+  max-width:700px;
+  margin:0 auto;
+}
+
+.title{
+  font-size:16px;
+  letter-spacing:0.3em;
+  margin-bottom:40px;
+  color:var(--gold);
+}
+
+.text{
+  font-size:15px;
+  line-height:2.2;
+}
+
+/* ===== VIDEO ===== */
+.video{
+  position:relative;
+  height:60vh;
+}
+.video video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.video-text{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(11,61,46,0.5);
+}
+.video-text p{
+  font-size:16px;
+  color:var(--gold);
+}
+
+/* ===== MAP ===== */
+.map{
+  margin-top:60px;
+}
+.map img{
+  width:100%;
+}
+
+/* ===== EXPERIENCE ===== */
+.exp-grid{
+  margin-top:60px;
+  display:grid;
+  gap:40px;
+}
+
+.exp-item h3{
+  color:var(--gold);
+  margin-bottom:10px;
+  font-size:14px;
+}
+
+.exp-item p{
+  font-size:14px;
+  line-height:2;
+}
+
+/* ===== GALLERY ===== */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.grid img{
+  width:100%;
+}
+
+/* ===== INFO ===== */
+.info{
+  font-size:14px;
+  color:var(--gold);
+  line-height:2;
+}
+
+/* ===== INSTAGRAM ===== */
+.insta-fixed{
+  position:fixed;
+  right:16px;
+  bottom:20px;
+  z-index:999;
+  opacity:0.8;
+}
+.insta-fixed img{
+  width:44px;
+  border-radius:50%;
+}
+.insta-fixed:hover{
+  opacity:1;
+}
+
+/* ===== PC ===== */
+@media(min-width:768px){
+
+  .fv h1{
+    font-size:30px;
+  }
+
+  .section{
+    padding:160px 20px;
+  }
+
+  .title{
+    font-size:18px;
+  }
+
+  .text{
+    font-size:16px;
+  }
+
+  .exp-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .video{
+    height:80vh;
+  }
+}
+
+</style>
+
+<!-- FV -->
+<section class="fv">
+  <div class="fv-logo">
+    <img src="EMON_logo_03_0.png">
+  </div>
+
+  <div class="fv-inner">
+    <div>
+      <h1>すべてが、あなたたちのために整えられる。</h1>
+      <p>PRIVATE STAY WITH PERSONAL CHEF</p>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video fade">
+  <video autoplay muted loop playsinline>
+    <source src="EMONTOP.mp4" type="video/mp4">
+  </video>
+  <div class="video-text">
+    <p>静けさの中で、満たされる時間</p>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section class="section fade">
+  <div class="inner">
+    <h2 class="title">CONCEPT</h2>
+    <p class="text">
+      千葉県八千代。<br><br>
+      天保元年より続く長右衛門の歴史。<br><br>
+      築195年の古民家を、現代へ。<br><br>
+      すべてが、あなたたちのために用意される。
+    </p>
+  </div>
+</section>
+
+<!-- SPACE -->
+<section class="section fade">
+  <div class="inner">
+    <h2 class="title">SPACE</h2>
+    <p class="text">
+      約200坪の敷地。<br>
+      延べ床50坪。<br><br>
+      空間そのものを、独り占めする。
+    </p>
+  </div>
+
+  <div class="map fade">
+    <img src="右衛門配置図白抜き.png">
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section fade">
+  <div class="inner">
+    <h2 class="title">EXPERIENCE</h2>
+    <p class="text">
+      専属の料理人が、その場で仕立てる。<br><br>
+      あなたたちのためだけの時間と食事。
+    </p>
+  </div>
+
+  <div class="exp-grid">
+    <div class="exp-item fade">
+      <h3>PRIVATE SAUNA</h3>
+      <p>
+        HUUM「DROP」<br>
+        やわらかな熱が、深く整える。
+      </p>
+    </div>
+
+    <div class="exp-item fade">
+      <h3>RADIUM BATH</h3>
+      <p>
+        ラジウム鉱物泉。<br>
+        身体の深部から温める。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section fade">
+  <div class="grid">
+    <img src="ラウンジ_002_0.jpg">
+    <img src="居間_002_0.jpg">
+    <img src="客間_002_0.jpg">
+    <img src="風呂_002_0.jpg">
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="section fade">
+  <h2 class="title">INFORMATION</h2>
+  <p class="info">
+    2026年8月22日 開業予定<br><br>
+    11月8日 マルシェ開催予定
+  </p>
+</section>
+
+<!-- Instagram固定 -->
+<a href="https://www.instagram.com/hito.to.kominka/" target="_blank" class="insta-fixed">
+  <img src="instagram-logo.jpg">
+</a>
+
+<script>
+const fades=document.querySelectorAll('.fade');
+
+const fadeIn=()=>{
+  const trigger=window.innerHeight*0.85;
+  fades.forEach(el=>{
+    if(el.getBoundingClientRect().top<trigger){
+      el.classList.add('show');
+    }
+  });
+};
+
+window.addEventListener('scroll',fadeIn);
+window.addEventListener('load',fadeIn);
+</script>
