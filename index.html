@@ -33,21 +33,32 @@ html,body{
 .fv{
   position:relative;
   height:100vh;
-  background:url("FV画像.jpg") center/cover no-repeat;
+  background:url("EMONFV.jpg") center/cover no-repeat;
 }
 .fv::after{
+  content:"";              /* ←これ必須 */
+  position:absolute;       /* ←これも必須 */
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
   background:rgba(11,61,46,0.45);
+  z-index:1;
+}
+.fv > *{
+  position:relative;
+  z-index:2;
 }
 
 .fv-logo{
   position:absolute;
-  top:50px;
+  top:180px;
   left:50%;
   transform:translateX(-50%);
   z-index:3;
 }
 .fv-logo img{
-  width:100px;
+  width: 100px;
 }
 
 .fv-inner{
@@ -207,6 +218,200 @@ html,body{
   }
 }
 
+/* =============================
+ EXPERIENCE レイヤー完成版
+============================= */
+
+.exp-wrap {
+  text-align: center;
+}
+
+/* chef */
+.chef-block {
+  margin-top: 60px;
+}
+
+.chef-block img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.chef-label {
+  margin-top: 20px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+
+/* 中央テキスト */
+.center-text {
+  margin: 50px 0 80px;
+  line-height: 2.2;
+}
+
+/* 下２つ */
+.bottom-block {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+}
+
+.item {
+  text-align: center;
+}
+
+.item img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 20px;
+}
+
+.item h3 {
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.item p {
+  font-size: 14px;
+  line-height: 2;
+}
+
+.circle-img {
+  position: relative;
+  width: 240px;
+  height: 240px;
+}
+
+.circle-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ここが重ねるやつ */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  width: 80%;
+}
+
+.overlay h3 {
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* ← 縦中央 */
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+}
+
+/* タイトル位置（少し上） */
+.overlay h3 {
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* 本文位置（そのまま下に流す） */
+.overlay p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.exp-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* 左右入れ替え用 */
+.exp-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.exp-text {
+  text-align: center;
+  max-width: 300px;
+}
+
+.exp-item img {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* =============================
+ スマホ対応（EXPERIENCE）
+============================= */
+@media(max-width: 768px){
+
+  /* 下2つを縦並びに */
+  .bottom-block {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  /* 横並び→縦に戻す */
+  .exp-item {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .exp-item.reverse {
+    flex-direction: column;
+  }
+
+  /* テキスト */
+  .exp-text {
+    max-width: 100%;
+  }
+
+  /* 画像サイズ少し小さく */
+  .exp-item img {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* chefも少し小さく */
+  .chef-block img {
+    width: 220px;
+    height: 220px;
+  }
+
+  /* 中央テキスト余白調整 */
+  .center-text {
+    margin: 40px 0 60px;
+    font-size: 14px;
+  }
+}
+
 </style>
 
 <!-- FV -->
@@ -263,31 +468,41 @@ html,body{
 </section>
 
 <!-- EXPERIENCE -->
-<section class="section fade">
-  <div class="inner">
-    <h2 class="title">EXPERIENCE</h2>
-    <p class="text">
+<section class="experience section fade">
+
+  <h2 class="title">EXPERIENCE</h2>
+
+  <div class="exp-wrap">
+
+    <!-- 上（chef） -->
+    <div class="chef-block">
+      <img src="chef.jpg">
+      <div class="chef-label">PRIVATE CHEF</div>
+    </div>
+
+    <!-- 中央テキスト -->
+    <p class="center-text">
       専属の料理人が、その場で仕立てる。<br><br>
       あなたたちのためだけの時間と食事。
     </p>
+
+    <!-- 下２つ -->
+    <div class="bottom-block">
+ <div class="exp-item">
+  <div class="exp-text">
+    <h3>PRIVATE SAUNA</h3>
+    <p>HUUM「DROP」<br>やわらかな熱が、深く整える。</p>
   </div>
+  <img src="sauna.jpg">
+</div>
 
-  <div class="exp-grid">
-    <div class="exp-item fade">
-      <h3>PRIVATE SAUNA</h3>
-      <p>
-        HUUM「DROP」<br>
-        やわらかな熱が、深く整える。
-      </p>
-    </div>
-
-    <div class="exp-item fade">
-      <h3>RADIUM BATH</h3>
-      <p>
-        ラジウム鉱物泉。<br>
-        身体の深部から温める。
-      </p>
-    </div>
+<div class="exp-item reverse">
+  <div class="exp-text">
+    <h3>RADIUM BATH</h3>
+    <p>ラジウム鉱物泉。<br>身体の深部から温める。</p>
+  </div>
+  <img src="onsen.jpg">
+</div>
   </div>
 </section>
 
