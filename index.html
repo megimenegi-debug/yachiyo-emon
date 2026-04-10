@@ -1,595 +1,133 @@
-<style>
-
-/* ===== カラー ===== */
-:root {
-  --green:#0b3d2e;
-  --gold:#c8a96a;
-}
-
-/* ===== RESET ===== */
-html,body{
-  margin:0;
-  padding:0;
-  font-family:"Hiragino Mincho ProN", serif;
-  background:var(--green);
-  color:#fff;
-  overflow-x:hidden;
-}
-
-*{box-sizing:border-box;}
-
-/* ===== フェード ===== */
-.fade{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s ease;
-}
-.fade.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ===== FV ===== */
-.fv{
-  position:relative;
-  height:100vh;
-  background:url("EMONFV.jpg") center/cover no-repeat;
-}
-.fv::after{
-  content:"";              /* ←これ必須 */
-  position:absolute;       /* ←これも必須 */
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(11,61,46,0.45);
-  z-index:1;
-}
-.fv > *{
-  position:relative;
-  z-index:2;
-}
-
-.fv-logo{
-  position:absolute;
-  top:180px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:3;
-}
-.fv-logo img{
-  width: 100px;
-}
-
-.fv-inner{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-
-.fv h1{
-  font-size:22px;
-  letter-spacing:0.25em;
-  line-height:1.6;
-  color:#fff;
-  text-shadow:0 4px 20px rgba(0,0,0,0.6);
-}
-
-.fv p{
-  margin-top:16px;
-  color:var(--gold);
-  font-size:12px;
-  text-shadow:0 2px 10px rgba(0,0,0,0.5);
-}
-
-/* ===== SECTION ===== */
-.section{
-  padding:100px 20px;
-  text-align:center;
-}
-
-.inner{
-  max-width:700px;
-  margin:0 auto;
-}
-
-.title{
-  font-size:16px;
-  letter-spacing:0.3em;
-  margin-bottom:40px;
-  color:var(--gold);
-}
-
-.text{
-  font-size:15px;
-  line-height:2.2;
-}
-
-/* ===== VIDEO ===== */
-.video{
-  position:relative;
-  height:60vh;
-}
-.video video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.video-text{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(11,61,46,0.5);
-}
-.video-text p{
-  font-size:16px;
-  color:var(--gold);
-}
-
-/* ===== MAP ===== */
-.map{
-  margin-top:60px;
-}
-.map img{
-  width:100%;
-}
-
-/* ===== EXPERIENCE ===== */
-.exp-grid{
-  margin-top:60px;
-  display:grid;
-  gap:40px;
-}
-
-.exp-item h3{
-  color:var(--gold);
-  margin-bottom:10px;
-  font-size:14px;
-}
-
-.exp-item p{
-  font-size:14px;
-  line-height:2;
-}
-
-/* ===== GALLERY ===== */
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-}
-.grid img{
-  width:100%;
-}
-
-/* ===== INFO ===== */
-.info{
-  font-size:14px;
-  color:var(--gold);
-  line-height:2;
-}
-
-/* ===== INSTAGRAM ===== */
-.insta-fixed{
-  position:fixed;
-  right:16px;
-  bottom:20px;
-  z-index:999;
-  opacity:0.8;
-}
-.insta-fixed img{
-  width:44px;
-  border-radius:50%;
-}
-.insta-fixed:hover{
-  opacity:1;
-}
-
-/* ===== PC ===== */
-@media(min-width:768px){
-
-  .fv h1{
-    font-size:30px;
-  }
-
-  .section{
-    padding:160px 20px;
-  }
-
-  .title{
-    font-size:18px;
-  }
-
-  .text{
-    font-size:16px;
-  }
-
-  .exp-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .video{
-    height:80vh;
-  }
-}
-
-/* =============================
- EXPERIENCE レイヤー完成版
-============================= */
-
-.exp-wrap {
-  text-align: center;
-}
-
-/* chef */
-.chef-block {
-  margin-top: 60px;
-}
-
-.chef-block img {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-}
-
-.chef-label {
-  margin-top: 20px;
-  color: var(--gold);
-  letter-spacing: 2px;
-  font-size: 14px;
-}
-
-/* 中央テキスト */
-.center-text {
-  margin: 50px 0 80px;
-  line-height: 2.2;
-}
-
-/* 下２つ */
-.bottom-block {
-  display: flex;
-  justify-content: center;
-  gap: 80px;
-}
-
-.item {
-  text-align: center;
-}
-
-.item img {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-top: 20px;
-}
-
-.item h3 {
-  color: var(--gold);
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.item p {
-  font-size: 14px;
-  line-height: 2;
-}
-
-.circle-img {
-  position: relative;
-  width: 240px;
-  height: 240px;
-}
-
-.circle-img img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* ここが重ねるやつ */
-.overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #fff;
-  width: 80%;
-}
-
-.overlay h3 {
-  color: var(--gold);
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.overlay p {
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* ← 縦中央 */
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  color: #fff;
-}
-
-/* タイトル位置（少し上） */
-.overlay h3 {
-  color: var(--gold);
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-/* 本文位置（そのまま下に流す） */
-.overlay p {
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-.exp-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-}
-
-/* 左右入れ替え用 */
-.exp-item.reverse {
-  flex-direction: row-reverse;
-}
-
-.exp-text {
-  text-align: center;
-  max-width: 300px;
-}
-
-.exp-item img {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* =============================
- スマホ対応（EXPERIENCE）
-============================= */
-@media(max-width: 768px){
-
-  /* 下2つを縦並びに */
-  .bottom-block {
-    flex-direction: column;
-    gap: 60px;
-  }
-
-  /* 横並び→縦に戻す */
-  .exp-item {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .exp-item.reverse {
-    flex-direction: column;
-  }
-
-  /* テキスト */
-  .exp-text {
-    max-width: 100%;
-  }
-
-  /* 画像サイズ少し小さく */
-  .exp-item img {
-    width: 200px;
-    height: 200px;
-  }
-
-  /* chefも少し小さく */
-  .chef-block img {
-    width: 220px;
-    height: 220px;
-  }
-
-  /* 中央テキスト余白調整 */
-  .center-text {
-    margin: 40px 0 60px;
-    font-size: 14px;
-  }
-}
-
-@media(max-width:768px){
-
-  /* ===== ロゴ ===== */
-  .fv-logo{
-    top:140px;
-  }
-
-  .fv-logo img{
-    width:220px; /* ←しっかり見せる */
-  }
-
-  /* ===== インスタ ===== */
-  .insta-fixed img{
-    width:60px; /* ←存在感出す */
-  }
-
-  /* ===== 動画テキスト ===== */
-  .video-text p{
-    font-size:18px;
-    padding:0 20px;
-    line-height:1.8;
-  }
-
-  /* ===== サウナ・温泉（超重要） ===== */
-
-  .exp-text h3{
-    font-size:16px; /* タイトル大きく */
-    margin-bottom:10px;
-  }
-
-  .exp-text p{
-    font-size:15px; /* 本文もしっかり読めるサイズ */
-    line-height:2;
-  }
-
-  /* ===== 画像サイズ（chefと揃える） ===== */
-
-  .exp-item img{
-    width:220px;
-    height:220px;
-  }
-
-  .chef-block img{
-    width:220px;
-    height:220px;
-  }
-
-}
-</style>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMON</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
 
 <!-- FV -->
 <section class="fv">
-  <div class="fv-logo">
-    <img src="EMON_logo_03_0.png">
-  </div>
+ <div class="fv-content">
+  <img src="EMON_logo_yoko04_0.png" class="fv-logo">
 
-  <div class="fv-inner">
-    <div>
-      <h1>すべてが、あなたたちのために整えられる。</h1>
-      <p>PRIVATE STAY WITH PERSONAL CHEF</p>
-    </div>
-  </div>
-</section>
+  <h1>
+    一棟貸し古民家の宿
+  </h1>
 
-<!-- VIDEO -->
-<section class="video fade">
-  <video autoplay muted loop playsinline>
-    <source src="EMONTOP.mp4" type="video/mp4">
-  </video>
-  <div class="video-text">
-    <p>静けさの中で、満たされる時間</p>
-  </div>
+  <p class="fv-sub">
+    2026年 夏 GRAND OPEN<br>
+    キャンペーン実施中
+  </p>
+</div>
 </section>
 
 <!-- CONCEPT -->
-<section class="section fade">
-  <div class="inner">
-    <h2 class="title">CONCEPT</h2>
-    <p class="text">
-      千葉県八千代。<br><br>
-      天保元年より続く長右衛門の歴史。<br><br>
-      築195年の古民家を、現代へ。<br><br>
-      すべてが、あなたたちのために用意される。
-    </p>
-  </div>
+<section class="concept">
+
+  <img src="EMON_logo_03_0.png" class="concept-logo">
+
+  <p class="concept-en">EMON - PRIVATE STAY</p>
+
+  <h2>
+    都心から車で1時間。<br>
+    千葉県八千代市にある古民家宿。
+  </h2>
+
+  <p class="concept-text">
+    天保元年より続く築195年の古民家。<br>
+    鎮守の森に囲まれたプライベート空間。<br><br>
+
+    専属シェフが織りなす食事を堪能し、<br>
+    サウナでくつろぐ一棟貸しスタイル。<br><br>
+
+    1日1組限定。<br>
+    お客様だけの癒しの時間をご用意しております。
+  </p>
+
 </section>
 
-<!-- SPACE -->
-<section class="section fade">
-  <div class="inner">
-    <h2 class="title">SPACE</h2>
-    <p class="text">
-      約200坪の敷地。<br>
-      延べ床50坪。<br><br>
-      空間そのものを、独り占めする。
-    </p>
-  </div>
-
-  <div class="map fade">
-    <img src="右衛門配置図白抜き.png">
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="experience section fade">
-
-  <h2 class="title">EXPERIENCE</h2>
-
-  <div class="exp-wrap">
-
-    <!-- 上（chef） -->
-    <div class="chef-block">
-      <img src="chef.jpg">
-      <div class="chef-label">PRIVATE CHEF</div>
-    </div>
-
-    <!-- 中央テキスト -->
-    <p class="center-text">
-      専属の料理人が、その場で仕立てる。<br><br>
-      あなたたちのためだけの時間と食事。
-    </p>
-
-    <!-- 下２つ -->
-    <div class="bottom-block">
- <div class="exp-item">
-  <div class="exp-text">
-    <h3>PRIVATE SAUNA</h3>
-    <p>HUUM「DROP」<br>やわらかな熱が、深く整える。</p>
-  </div>
-  <img src="sauna.jpg">
-</div>
-
-<div class="exp-item reverse">
-  <div class="exp-text">
-    <h3>RADIUM BATH</h3>
-    <p>ラジウム鉱物泉。<br>身体の深部から温める。</p>
-  </div>
-  <img src="onsen.jpg">
-</div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="section fade">
-  <div class="grid">
-    <img src="ラウンジ_002_0.jpg">
-    <img src="居間_002_0.jpg">
-    <img src="客間_002_0.jpg">
-    <img src="風呂_002_0.jpg">
-  </div>
-</section>
-
-<!-- INFO -->
-<section class="section fade">
-  <h2 class="title">INFORMATION</h2>
-  <p class="info">
-    2026年8月22日 開業予定<br><br>
-    11月8日 マルシェ開催予定
+<!-- 配置図 -->
+<section class="map">
+  <img src="右衛門配置図白抜き.png">
+  <p class="map-text">
+    深い緑に囲まれ旬の味を堪能できる都心リゾート
   </p>
 </section>
 
-<!-- Instagram固定 -->
-<a href="https://www.instagram.com/hito.to.kominka/" target="_blank" class="insta-fixed">
-  <img src="instagram-logo.jpg">
-</a>
+<!-- 施設 -->
+<section class="room">
+  <img src="ラウンジ_002_0.jpg">
+  <div class="text">
+    <h3>DINING</h3>
+    <p>専属シェフの料理を堪能する特別な空間</p>
+  </div>
+</section>
 
-<script>
-const fades=document.querySelectorAll('.fade');
+<section class="room reverse">
+  <img src="客間_002_0.jpg">
+  <div class="text">
+    <h3>BED ROOM</h3>
+    <p>自然素材に囲まれた落ち着いた空間</p>
+  </div>
+</section>
 
-const fadeIn=()=>{
-  const trigger=window.innerHeight*0.85;
-  fades.forEach(el=>{
-    if(el.getBoundingClientRect().top<trigger){
-      el.classList.add('show');
-    }
-  });
-};
+<section class="room">
+  <img src="居間_002_0.jpg">
+  <div class="text">
+    <h3>LIVING</h3>
+    <p>広々とした畳のくつろぎ空間</p>
+  </div>
+</section>
 
-window.addEventListener('scroll',fadeIn);
-window.addEventListener('load',fadeIn);
-</script>
+<section class="room reverse">
+  <img src="風呂_002_0.jpg">
+  <div class="text">
+    <h3>BATH & SAUNA</h3>
+    <p>身体の芯から整う癒しの時間</p>
+  </div>
+</section>
+
+<!-- シェフ -->
+<section class="feature chef">
+  <img src="chef.jpg">
+  <div class="overlay">
+    <h2>EMON CUISINE</h2>
+    <p>専属シェフが目の前で料理を提供</p>
+  </div>
+</section>
+
+<!-- 温泉 -->
+<section class="feature onsen">
+  <img src="onsen.jpg">
+  <div class="overlay">
+    <h2>EMON ONSEN</h2>
+    <p>ラジウム鉱物泉で深部から温まる</p>
+  </div>
+</section>
+
+<!-- サウナ -->
+<section class="feature sauna">
+  <img src="sauna.jpg">
+  <div class="overlay">
+    <h2>EMON SAUNA</h2>
+    <p>HUUM DROP導入の本格サウナ</p>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section class="price">
+  <h2>キャンペーン価格</h2>
+  <p>2026年8月1日〜10月31日</p>
+
+  <p class="big">10% OFF</p>
+
+  <p>平日 31,500円〜</p>
+  <p>土日・祝前日 ○○円〜</p>
+</section>
+
+</body>
+</html>
