@@ -129,7 +129,7 @@ body{
   color:#fff;
 }
 
-.map-wrap{
+..map-wrap{
   position:relative;
   max-width:1000px;
   margin:0 auto;
@@ -140,13 +140,13 @@ body{
   display:block;
 }
 
-/* 丸デザイン（ここが肝🔥） */
+/* 丸 */
 .map-point{
   position:absolute;
   width:90px;
   height:90px;
   border-radius:50%;
-  background:rgba(0,120,100,0.75);
+  background:rgba(20,100,80,0.8);
   color:#fff;
   font-size:13px;
   display:flex;
@@ -155,45 +155,55 @@ body{
   text-align:center;
   backdrop-filter: blur(6px);
   border:1px solid rgba(255,255,255,0.4);
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* ▼位置（あとで調整する） */
-.point1{
+.p1{
+  top:45%;
+  left:38%;
+}
+
+.p2{ /* サウナ */
+  top:32%;
+  left:63%;
+}
+
+.p3{ /* 管理棟 */
   top:60%;
-  left:25%;
-}
-
-.point2{
-  top:40%;
-  left:60%;
-}
-
-.point3{
-  top:65%;
   left:75%;
+}
+
+.p4{ /* ドッグラン */
+  top:55%;
+  left:60%;
 }
 
 @media (max-width:768px){
 
   .map-point{
-    width:60px;
-    height:60px;
+    width:55px;
+    height:55px;
     font-size:10px;
   }
 
-  .point1{
-    top:62%;
-    left:20%;
+  .p1{ /* 宿泊棟 */
+    top:48%;
+    left:30%;
   }
 
-  .point2{
-    top:38%;
-    left:55%;
+  .p2{ /* サウナ */
+    top:28%;
+    left:60%;
   }
 
-  .point3{
-    top:68%;
-    left:70%;
+  .p3{ /* 管理棟 */
+    top:65%;
+    left:72%;
+  }
+
+  .p4{ /* ドッグラン */
+    top:58%;
+    left:58%;
   }
 
 }
