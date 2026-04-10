@@ -1,0 +1,197 @@
+body{
+  margin:0;
+  font-family:serif;
+  color:#222;
+}
+
+.fv{
+  position:relative;
+  height:100vh;
+  background:url("EMONFV.jpg") center/cover no-repeat;
+}
+
+/* ←これ超大事 */
+.fv::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45); /* 暗さ */
+  z-index:1;
+}
+
+.fv-content{
+  position:absolute;
+  bottom:80px; /* ←中央じゃなくて下寄せ */
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+  z-index:2;
+  width:100%;
+  padding:0 20px;
+}
+
+/* ロゴ */
+.fv-logo{
+  width:260px;
+  margin-bottom:20px;
+}
+
+/* タイトル */
+.fv h1{
+  font-size:clamp(20px, 3vw, 36px);
+  color:#fff;
+  letter-spacing:0.15em;
+  margin-bottom:10px;
+
+  /* ←これで見やすさ爆上がり */
+  text-shadow:0 4px 20px rgba(0,0,0,0.8);
+}
+
+/* サブ */
+.fv-sub{
+  color:#d4af37;
+  font-size:14px;
+  letter-spacing:0.2em;
+
+  text-shadow:0 2px 10px rgba(0,0,0,0.7);
+}
+
+/* CONCEPT */
+.concept{
+  padding:120px 20px;
+  text-align:center;
+  background:#f7f6f2;
+}
+
+.concept-en{
+  letter-spacing:0.2em;
+  margin-bottom:20px;
+}
+
+.concept h2{
+  line-height:2;
+  margin-bottom:40px;
+}
+
+.concept-text{
+  max-width:600px;
+  margin:auto;
+  line-height:2.5;
+}
+
+/* ロゴ */
+.concept-logo{
+  width:80px;
+  margin-bottom:20px;
+  opacity:0.9;
+}
+
+/* 全体整え（まだなら） */
+.concept{
+  text-align:center;
+  padding:120px 20px;
+  background:#f4f4f4;
+}
+
+.concept-en{
+  font-size:14px;
+  letter-spacing:0.3em;
+  color:#666;
+  margin-bottom:30px;
+}
+
+.concept h2{
+  font-size:28px;
+  line-height:1.8;
+  margin-bottom:40px;
+}
+
+.concept-text{
+  font-size:14px;
+  line-height:2.2;
+  color:#444;
+}
+
+/* MAP */
+.map{
+  position:relative;
+}
+
+.map img{
+  width:100%;
+}
+
+.map-text{
+  position:absolute;
+  top:20%;
+  right:10%;
+  writing-mode:vertical-rl;
+  color:#fff;
+}
+
+/* ROOM */
+.room{
+  display:flex;
+}
+
+.room img{
+  width:50%;
+}
+
+.room .text{
+  width:50%;
+  padding:60px;
+}
+
+.reverse{
+  flex-direction:row-reverse;
+}
+
+/* FEATURE */
+.feature{
+  position:relative;
+}
+
+.feature img{
+  width:100%;
+}
+
+.overlay{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  color:#fff;
+  text-align:center;
+}
+
+/* PRICE */
+.price{
+  text-align:center;
+  padding:100px 20px;
+  background:#0b3d2e;
+  color:#fff;
+}
+
+.big{
+  font-size:32px;
+  margin:20px 0;
+}
+
+/* スマホ */
+@media(max-width:768px){
+
+  .room{
+    flex-direction:column;
+  }
+
+  .room img,
+  .room .text{
+    width:100%;
+  }
+
+  .fv-logo{
+    width:140px;
+  }
+
+}
