@@ -50,17 +50,21 @@ section{
   background:rgba(0,0,0,0.5);
 }
 
+/* ===== FV中央配置 ===== */
 .fv-inner{
   position:absolute;
-  bottom:80px;
-  width:100%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
   text-align:center;
   z-index:2;
+  width:100%;
 }
 
+/* ロゴ中央 */
 .fv-logo{
-  width:260px;
-  margin-bottom:20px;
+  display:block;
+  margin:0 auto 20px;
 }
 
 .fv h1{
@@ -77,14 +81,12 @@ section{
 
 /* ===== CONCEPT ===== */
 .concept{
-  padding:120px 20px;
   text-align:center;
-  background:#fff;
 }
 
 .concept-logo{
-  width:90px;
-  margin-bottom:20px;
+  display:block;
+  margin:0 auto 20px;
 }
 
 .concept h2{
