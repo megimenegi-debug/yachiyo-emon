@@ -1,11 +1,40 @@
+/* ===== 全体 ===== */
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  overflow-x:hidden;
+  width:100%;
+}
+
 body{
   margin:0;
   font-family:"Hiragino Mincho ProN", serif;
   color:#222;
   background:#f4f4f4;
+  -webkit-text-size-adjust:100%;
 }
 
-/* FV */
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+section{
+  width:100%;
+  overflow:hidden;
+}
+
+/* ===== 共通 ===== */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* ===== FV ===== */
 .fv{
   height:100vh;
   background:url("EMONFV.jpg") center/cover no-repeat;
@@ -19,48 +48,63 @@ body{
   background:rgba(0,0,0,0.5);
 }
 
+/* 中央固定 */
 .fv-inner{
   position:absolute;
-  bottom:80px;
-  width:100%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
   text-align:center;
   z-index:2;
+  width:100%;
+  padding:0 20px;
 }
 
 .fv-logo{
+  display:block;
+  margin:0 auto 20px;
   width:260px;
 }
 
 .fv h1{
   color:#fff;
-  font-size:28px;
+  font-size:32px;
+  letter-spacing:0.2em;
+  text-shadow:0 4px 20px rgba(0,0,0,0.7);
 }
 
 .fv p{
   color:#c8a96a;
+  margin-top:10px;
 }
 
-/* CONCEPT */
+/* ===== CONCEPT ===== */
 .concept{
-  padding:120px 20px;
   text-align:center;
-  background:#fff;
+  padding:120px 20px;
 }
 
 .concept-logo{
+  display:block;
+  margin:0 auto 20px;
   width:90px;
 }
 
 .concept h2{
   font-size:26px;
+  line-height:1.8;
 }
 
 .concept p{
   margin-top:30px;
-  line-height:2;
+  line-height:2.2;
 }
 
-/* MAP */
+/* ===== MAP ===== */
+.map{
+  position:relative;
+}
+
 .map img{
   width:100%;
 }
@@ -70,11 +114,36 @@ body{
   top:15%;
   right:8%;
   writing-mode:vertical-rl;
+  font-size:20px;
+  color:#333;
+  z-index:2;
 }
 
-/* ROOM */
+/* ★これが超重要（丸復活） */
+.map-point{
+  position:absolute;
+  z-index:3;
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:rgba(20,100,80,0.8);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+}
+
+/* 位置（そのまま使う） */
+.p1{ top:45%; left:38%; }
+.p2{ top:32%; left:63%; }
+.p3{ top:60%; left:75%; }
+.p4{ top:55%; left:60%; }
+
+/* ===== ROOM ===== */
 .room{
   display:flex;
+  flex-wrap:wrap;
 }
 
 .room img{
@@ -83,37 +152,14 @@ body{
 
 .room .text{
   width:50%;
-  padding:60px;
+  padding:40px;
 }
-
-  .room{
-    flex-direction:column;
-  }
-
-  .room img{
-    width:100%;
-  }
-
-  .room .text{
-    width:100%;
-    padding:30px 20px;
-  }
-
-  .room h3{
-    font-size:18px;
-    margin-bottom:10px;
-  }
-
-  .room p{
-    font-size:13px;
-    line-height:1.8;
-  }
 
 .reverse{
   flex-direction:row-reverse;
 }
 
-/* FEATURE */
+/* ===== FEATURE ===== */
 .feature{
   position:relative;
 }
@@ -128,9 +174,10 @@ body{
   left:50%;
   transform:translate(-50%,-50%);
   color:#fff;
+  text-align:center;
 }
 
-/* PRICE */
+/* ===== PRICE ===== */
 .price{
   background:#0b3d2e;
   color:#fff;
@@ -138,11 +185,12 @@ body{
   padding:100px 20px;
 }
 
-.big{
+.price .big{
   font-size:30px;
+  margin:20px 0;
 }
 
-/* BUTTON */
+/* ===== ボタン（復活） ===== */
 .btn{
   display:inline-block;
   margin-top:30px;
@@ -150,9 +198,10 @@ body{
   background:#c8a96a;
   color:#fff;
   text-decoration:none;
+  letter-spacing:0.1em;
 }
 
-/* スマホ */
+/* ===== スマホ ===== */
 @media(max-width:768px){
 
   .fv-logo{
@@ -160,7 +209,15 @@ body{
   }
 
   .fv h1{
-    font-size:20px;
+    font-size:22px;
+  }
+
+  .concept{
+    padding:80px 20px;
+  }
+
+  .concept h2{
+    font-size:18px;
   }
 
   .room{
@@ -173,7 +230,14 @@ body{
   }
 
   .room .text{
-    padding:30px 20px;
+    padding:24px 16px;
+  }
+
+  /* 丸サイズ小さく */
+  .map-point{
+    width:50px;
+    height:50px;
+    font-size:9px;
   }
 
 }
