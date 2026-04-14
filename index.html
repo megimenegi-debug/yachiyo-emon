@@ -1,161 +1,34 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EMON</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <script>
-const targets = document.querySelectorAll('.fade, .zoom');
-
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
-  });
-},{
-  threshold:0.2
-});
-
-targets.forEach(el => observer.observe(el));
-</script>
-
 <!-- FV -->
 <section class="fv">
- <div class="fv-content">
+ <div class="fv-inner">
   <img src="EMON_logo_yoko04_0.png" class="fv-logo">
 
-  <h1>
-    一棟貸し古民家の宿
-  </h1>
+  <h1>一棟貸し古民家の宿</h1>
 
   <p class="fv-sub">
     2026年 夏 GRAND OPEN<br>
     キャンペーン実施中
   </p>
-</div>
-</section>
-
-<!-- CONCEPT -->
-<section class="concept">
-
-  <img src="EMON_logo_03_0.png" class="concept-logo">
-
-  <p class="concept-en">EMON - PRIVATE STAY</p>
-
-  <h2>
-    都心から車で1時間。<br>
-    千葉県八千代市にある古民家宿。
-  </h2>
-
-  <p class="concept-text">
-    天保元年より続く築195年の古民家。<br>
-    鎮守の森に囲まれたプライベート空間。<br><br>
-
-    専属シェフが織りなす食事を堪能し、<br>
-    サウナでくつろぐ一棟貸しスタイル。<br><br>
-
-    1日1組限定。<br>
-    お客様だけの癒しの時間をご用意しております。
-  </p>
-
+ </div>
 </section>
 
 <!-- 配置図 -->
 <section class="map">
   <img src="右衛門配置図白抜き.png">
+
   <p class="map-text">
     深い緑に囲まれ旬の味を堪能できる都心リゾート
   </p>
-    <<div class="map-point p1">宿泊棟</div>
-    <div class="map-point p2">サウナエリア</div>
-    <div class="map-point p3">管理棟</div>
-    <div class="map-point p4">ドッグラン</div>
+
+  <div class="map-point p1">宿泊棟</div>
+  <div class="map-point p2">サウナエリア</div>
+  <div class="map-point p3">管理棟</div>
+  <div class="map-point p4">ドッグラン</div>
 </section>
 
-<!-- 施設 -->
-<section class="room">
-  <img src="ラウンジ_002_0.jpg">
-  <div class="text">
-    <h3>DINING</h3>
-    <p>歴史ある古民家の空間で、専属シェフの料理を堪能。</p>
-  </div>
-</section>
-
-<section class="room reverse">
-  <img src="客間_002_0.jpg">
-  <div class="text">
-    <h3>BED ROOM</h3>
-    <p>ベッドを2台完備。自然素材に囲まれた落ち着いた空間。</p>
-  </div>
-</section>
-
-<section class="room">
-  <img src="居間_002_0.jpg">
-  <div class="text">
-    <h3>LIVING</h3>
-    <p>広々とした畳の空間を、くつろぎのひとときに。</p>
-  </div>
-</section>
-
-<section class="room reverse">
-  <img src="風呂_002_0.jpg">
-  <div class="text">
-    <h3>BATH & SAUNA</h3>
-    <p>静寂の中で心と身体を整える時間。<br>
-      自然に包まれる癒しのひとときを。</p>
-  </div>
-</section>
-
-<!-- シェフ -->
-<section class="feature chef">
-  <img src="chef.jpg">
-  <div class="overlay">
-    <h2>EMON CUISINE</h2>
-    <p>専属シェフが目の前で料理を提供</p>
-  </div>
-</section>
-
-<!-- 温泉 -->
-<section class="feature onsen">
-  <img src="onsen.jpg">
-  <div class="overlay">
-    <h2>EMON ONSEN</h2>
-    <p>ラジウム鉱物泉で深部から温まる</p>
-  </div>
-</section>
-
-<!-- サウナ -->
-<section class="feature sauna">
-  <img src="sauna.jpg">
-  <div class="overlay">
-    <h2>EMON SAUNA</h2>
-    <p>HUUM DROP導入の本格サウナ</p>
-  </div>
-</section>
-
-<!-- 料金 -->
-<section class="price">
-  <h2>キャンペーン価格</h2>
-  <p>2026年8月1日〜10月31日</p>
-
-  <p class="big">10% OFF</p>
-
-  <p>平日 31,500円〜</p>
-  <p>土日・祝前日 ○○円〜</p>
-</section>
-
-<div class="cta-btn">
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRFRpyAxzpn7lLhitbxb4sPGVype_jPT_5dmqkC4MchsPU-A/viewform"
-     target="_blank">
-    ご予約はこちら
-  </a>
-</div>
-
-</body>
-</html>
+<!-- ボタン -->
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeRFRpyAxzpn7lLhitbxb4sPGVype_jPT_5dmqkC4MchsPU-A/viewform"
+   target="_blank"
+   class="btn">
+  ご予約はこちら
+</a>
