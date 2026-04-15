@@ -167,8 +167,8 @@ section{
 @media(max-width:768px){
 
   .map-point{
-    width:35px;
-    height:35px;
+    width:30px;
+    height:30px;
     font-size:6px;
   }
 
