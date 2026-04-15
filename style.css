@@ -167,9 +167,9 @@ section{
 @media(max-width:768px){
 
   .map-point{
-    width:30px;
-    height:30px;
-    font-size:6px;
+    width:28px;
+    height:28px;
+    font-size:4px;
   }
 
   .p1{ top:48%; left:42%; }
