@@ -2,9 +2,7 @@
 
 @media(min-width:1024px){
 
-  body{
-    background:#f4f4f4;
-  }
+
 
   section{
     max-width:1280px;
@@ -25,7 +23,7 @@ body{
   margin:0;
   font-family:"Hiragino Mincho ProN", serif;
   color:#222;
-  background:#f4f4f4;
+  background:url("haikei.png") repeat;
   -webkit-text-size-adjust:100%;
 }
 
@@ -49,7 +47,8 @@ section{
 
 /* ===== FV ===== */
 .fv{
-  height:100vh;
+  min-height:100vh;
+  height:auto;
   background:url("EMONFV.jpg") center/cover no-repeat;
   position:relative;
 }
@@ -92,14 +91,27 @@ section{
 }
 
 .fv-sub{
-  font-size:18px;
-  line-height:1.6;
+  font-size:20px;
+  line-height:1.8;
+  color:#d4af37; /* ゴールド強め */
+
+  text-shadow:
+    0 0 10px rgba(212,175,55,0.6),
+    0 0 20px rgba(212,175,55,0.4),
+    0 2px 6px rgba(0,0,0,0.8);
 }
 
 @media(max-width:768px){
   .fv-sub{
     font-size:15px;
   }
+
+  .fv{
+    background-size:cover;
+    background-position:center 20%;
+    min-height:70vh;
+  }
+
 }
 
 /* ===== CONCEPT ===== */
@@ -136,11 +148,18 @@ section{
 .map-text{
   position:absolute;
   top:15%;
-  right:8%;
   writing-mode:vertical-rl;
   font-size:20px;
   color:#333;
   z-index:2;
+}
+
+/* スマホ用 */
+@media screen and (max-width: 768px){
+  .map-text{
+    font-size:14px; /* 小さくする */
+    top:10%;        /* 少し上に調整（好みで） */
+  }
 }
 
 .map-point{
@@ -167,65 +186,171 @@ section{
 @media(max-width:768px){
 
   .map-point{
-    width:28px;
-    height:28px;
-    font-size:4px;
+    width:30px;
+    height:30px;
+    font-size:5px;
   }
 
-  .p1{ top:48%; left:42%; }
-  .p2{ top:30%; left:68%; }
-  .p3{ top:63%; left:82%; }
-  .p4{ top:58%; left:65%; }
+  .p1{ top:45%; left:38%; }
+  .p2{ top:30%; left:58%; }
+  .p3{ top:63%; left:78%; }
+  .p4{ top:58%; left:60%; }
 
 }
+
 /* ===== ROOM ===== */
-.room{
-  position:relative;
+
+.dining .text{
+  position:absolute;
+  top:50%;
+  left:8%;
+  transform:translateY(-50%);
+  text-align:left;
 }
 
-.room img{
-  width:100%;
-  height:80vh; /* ←画面いっぱい感 */
-  object-fit:cover;
-  filter:brightness(70%);
+.bedroom .text{
+  position:absolute;
+  bottom:40px;
+  right:60px;
+  text-align:right;
 }
 
-.room .text{
+.living .text{
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  color:#fff;
   text-align:center;
-  width:90%;
+}
+
+.bath .text{
+  position:absolute;
+  bottom:40px;
+  right:60px;
+  text-align:right;
+}
+
+.room{
+  position:relative;
+}
+.room img{
+  width:100%;
+  height:80vh;
+  object-fit:cover;
+  filter:brightness(70%);
 }
 
 .room h3{
-  font-size:40px;
-  margin-bottom:20px;
-  letter-spacing:0.15em;
+  margin-bottom:10px;
 }
 
 .room p{
-  font-size:18px;
+  color:#fff;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
   line-height:1.8;
+
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.8),
+    0 0 10px rgba(0,0,0,0.6);
+}
+
+.room h3{
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+}
+
+@media(max-width:768px){
+  .room img{
+    height:auto;
+  }
+}
+
+
+/* PC */
+
+.room{
+  position:relative;
+  overflow:hidden; 
+}
+
+/* 共通 */
+.room{
+  position:relative;
+}
+
+/* 個別だけで配置 */
+.dining .text{
+  position:absolute;
+  top:50%;
+  left:8%;
+  transform:translateY(-50%);
+}
+
+.bedroom .text{
+  position:absolute;
+  top:45%;
+  right:5%;
+  left:auto;
+  text-align:right;
+}
+
+.living .text{
+  position:absolute;
+  top:35%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.bath .text{
+  position:absolute;
+  top:45%;
+  right:5%;
+  left:auto;
+  text-align:right;
 }
 
 @media(max-width:768px){
 
-  .room img{
-    height:60vh;
+  /* 全セクション共通で左上に揃える */
+  .room .text{
+    position:absolute;
+    top:10%;
+    left:5%;
+    transform:none; /* ←これ超重要（中央寄せ解除） */
+    text-align:left;
+    width:80%;
   }
 
+  /* タイトル */
   .room h3{
-    font-size:24px;
+    font-size:26px;
+    letter-spacing:0.12em;
   }
+
+  /* サブテキスト */
+  .room p{
+    font-size:13px;
+    margin-top:6px;
+  }
+
+}
+
+.room h3{
+  color:#fff;
+
+  text-shadow:
+    0 2px 10px rgba(0,0,0,0.6),
+    0 0 20px rgba(0,0,0,0.4);
+}
+
+.room p{
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
 
   .room p{
     font-size:14px;
   }
 
-}
 
 .footer{
   position:relative;
@@ -323,13 +448,6 @@ section{
 
   .room .text{
     padding:24px 16px;
-  }
-
-  /* 丸サイズ小さく */
-  .map-point{
-    width:50px;
-    height:50px;
-    font-size:9px;
   }
 
 }
