@@ -147,19 +147,38 @@ section{
 
 .map-text{
   position:absolute;
-  top:15%;
+  top:12%;
+  left:5%; 
+
   writing-mode:vertical-rl;
-  font-size:33px;
-  color:#333;
+
+  font-size: clamp(20px, 2.5vw, 34px);
+  font-weight:500;
+  letter-spacing:0.1em;
+
+  color:#fff;
+
+  text-shadow:
+    0 0 10px rgba(0,0,0,0.6),
+    0 2px 8px rgba(0,0,0,0.8);
+
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.4);
+
   z-index:2;
+}
+
+.map-text{
+  background:rgba(0,0,0,0.2);
+  padding:20px 10px;
+  backdrop-filter: blur(2px);
 }
 
 /* スマホ用 */
 @media screen and (max-width: 768px){
-  .map-text{
-    font-size:14px; /* 小さくする */
-    top:10%;        /* 少し上に調整（好みで） */
-  }
+.map-text{
+  font-size:12px;
+  left:4%;
+}
 }
 
 .map-point{
@@ -310,26 +329,37 @@ section{
 
 @media(max-width:768px){
 
-  /* 全セクション共通で左上に揃える */
   .room .text{
     position:absolute;
     top:10%;
     left:5%;
-    transform:none; /* ←これ超重要（中央寄せ解除） */
+    transform:none;
     text-align:left;
     width:80%;
   }
 
-  /* タイトル */
   .room h3{
     font-size:26px;
     letter-spacing:0.12em;
   }
 
-  /* サブテキスト */
   .room p{
     font-size:13px;
     margin-top:6px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .overlay{
+    width:90%;
+    margin:0 auto;
+  }
+
+  .overlay p{
+    line-height:1.9;
+    letter-spacing:0.05em;
   }
 
 }
@@ -350,31 +380,6 @@ section{
   .room p{
     font-size:14px;
   }
-
-
-.footer{
-  position:relative;
-}
-
-.footer img{
-  width:100%;
-  filter:brightness(60%);
-}
-
-.footer-overlay{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  text-align:center;
-  color:#fff;
-}
-
-.footer a{
-  display:block;
-  margin:10px 0;
-  color:#fff;
-}
 
 /* ===== FEATURE ===== */
 .feature{
@@ -407,15 +412,98 @@ section{
   margin:20px 0;
 }
 
-/* ===== ボタン（復活） ===== */
-.btn{
-  display:inline-block;
-  margin-top:30px;
+/* ===== フッダー全体 ===== */
+.footer{
+  position:relative;
+  max-width:1280px;
+  margin:0 auto;
+  overflow:hidden;
+}
+
+/* 背景画像 */
+.footer > img{
+  width:100%;
+  height:60vh;
+  object-fit:cover;
+  filter:brightness(35%);
+  display:block;
+}
+
+/* 中央テキスト */
+.footer-overlay{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;
+  color:#fff;
+  z-index:10;   /* ←これ追加！！！ */
+}
+
+/* ===== ロゴ（ここが原因） ===== */
+.footer-logo{
+  width:220px;   /* ←FVと近いサイズ */
+  margin:20px auto;
+  display:block;
+}
+
+/* ===== インスタ ===== */
+.footer-instagram img{
+  width:40px;   /* ←ちょうどいいサイズ */
+  height:auto;
+  margin:0 auto 10px;
+  display:block;
+}
+
+/* リンク文字（Instagram） */
+.footer-instagram{
+  color:#fff;              /* 白にする */
+  text-decoration:none;    /* 下線消す */
+  display:block;
+  margin-top:10px;
+  font-size:14px;
+  opacity:0.8;             /* 少し上品に */
+}
+
+/* ===== テキスト ===== */
+.footer h2{
+  font-size:32px;
+  margin:10px 0;
+}
+
+.footer .big{
+  font-size:18px;
+  line-height:1.8;
+}
+
+.address{
+  color:#fff;              /* 白にする */
+  text-decoration:none;    /* 下線消す */
+  display:block;
+  margin-top:10px;
+  font-size:14px;
+  opacity:0.8;             /* 少し上品に */
+}
+
+/* ===== ボタン ===== */
+.footer .btn{
+  display:inline-block;   /* ← blockじゃなくこれ */
   padding:16px 40px;
   background:#c8a96a;
   color:#fff;
   text-decoration:none;
-  letter-spacing:0.1em;
+  margin-top:20px;
+  border-radius:4px;
+}
+
+/* ===== コピーライト ===== */
+.copy{
+  position:absolute;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:12px;
+  color:#fff;
 }
 
 /* ===== スマホ ===== */
@@ -441,12 +529,87 @@ section{
     flex-direction:column;
   }
 
-  .room img,
-  .room .text{
-  }
 
   .room .text{
     padding:24px 16px;
   }
 
+}
+
+/* デフォルト（PC） */
+.sp{
+  display:none;
+}
+
+/* スマホ */
+@media(max-width:768px){
+  .pc{
+    display:none;
+  }
+  .sp{
+    display:block;
+  }
+}
+
+@media(max-width:768px){
+
+  .price h2{
+    font-size:28px; /* ←期間 */
+    line-height:1.4;
+  }
+
+  .price h3{
+    font-size:22px; /* ←限定 */
+  }
+
+  .price p{
+    font-size:16px;
+  }
+
+}
+
+@media(max-width:768px){
+
+
+
+  .price h2{
+    font-size:28px;
+  }
+
+  .price h3{
+    font-size:22px;
+  }
+
+  .price p{
+    font-size:16px;
+  }
+
+.footer .price{
+  background:none;
+}
+
+}
+
+/* Instagram */
+.insta{
+  display:block;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.insta img{
+  width:40px;
+  display:inline-block;
+}
+
+/* スマホ */
+@media(max-width:768px){
+
+  .footer-text{
+    font-size:16px;
+  }
+
+  .footer-logo{
+    width:120px;
+  }
 }
